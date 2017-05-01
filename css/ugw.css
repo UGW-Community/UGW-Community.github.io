@@ -1,0 +1,595 @@
+/* Overview:
+- Documentation (THIS THING HERE)
+- Custom badges
+- Color groups changes (e.g. VIP, Manager)
+- Changes to users (spend props!)
+  - Color (50 props)
+  - Role-Title (50 props)
+  - Special-Badge (100 props)
+- Bot Changes
+
+Used colors:
+- Creator & Co-Creator:  (maybe #FC3937)
+- Managers: 
+- Mods: 
+- VIP / Streamers: 
+
+Feel free to advice other colors!
+*/
+
+/* Start general changes */
+/* Color for mentioning */
+#chat .chat-container .chat-messages .chat-main li .activity-row .text .username-handle.mentioned {
+    color:#FC3937;
+  /* default: color:rgba(255,0,255,.8); */
+}
+
+
+/* Custom badges */
+/* Nothing defined yet 
+
+Example: 
+#chat .chat-container .chat-messages .chat-main li.vip .username .user-role-icon,
+#main_avatar_room #main-user-list-room #avatar-list LI.vip  .user-role-icon
+{
+    background-image: url(https://nightbloo.github.io/plug/icons/vip.png);
+    display: inline-block;
+}
+*/
+/* Badge for VIP */
+#chat .chat-container .chat-messages .chat-main li.currentDJ.vip .username:before 
+{
+    margin-right:0.2em;
+}
+#main_avatar_room #main-user-list-room #avatar-list LI.vip  .user-role-icon
+{
+    content:"";
+    background-size: 12px 12px;
+    display: inline-block;
+    width: 12px; 
+    height: 12px;
+    background-image: url(https://zolfax.github.io/icons/Glitch.svg);
+    margin-right:0.4em;
+}
+#chat .chat-container .chat-messages .chat-main li.vip .username .user-role-icon,
+#player-controller .left ul li.infoContainer .infoContainerInner .currentDJSong.vip .username:before
+{
+    content:"";
+    background-size: 10px 10px;
+    display: inline-block;
+    width: 10px; 
+    height: 10px;
+    background-image: url(https://zolfax.github.io/icons/Glitch.svg);
+    display:inline-block;
+    margin-right:0.4em;
+}
+
+
+/* Remove Skip button: Hopefully not needed
+#main_player .player_header span.skip-el {
+    display:none;
+}
+*/
+
+/* Remove the lock queue button */
+#browser .browser-content .room-queue-unlock {
+    visibility:hidden;
+}
+
+/* Start group changes (color, role name) */
+
+/* pleb color */
+#chat .chat-container .chat-messages .chat-main li .username,
+#main_avatar_room #main-user-list-room #avatar-list LI  .username,
+#player-controller .left ul li.infoContainer .infoContainerInner .currentDJSong .username
+{
+    color:#878c8e;
+}
+
+
+
+/* removes ALL user roles */
+#main_avatar_room #main-user-list-room #avatar-list li.creator .user-role,
+#main_avatar_room #main-user-list-room #avatar-list li.admin .user-role,
+#chat .chat-container .chat-messages .chat-main li .username .user-role,
+#main_avatar_room #main-user-list-room #avatar-list li .user-role 
+{
+    display: none;
+}
+
+/* Completely forgot about Admins */
+#chat .chat-container .chat-messages .chat-main li.admin .username,
+#main_avatar_room #main-user-list-room #avatar-list LI.admin  .username,
+#player-controller .left ul li.infoContainer .infoContainerInner .currentDJSong.admin .username
+{
+    color:#e81385;
+}
+
+/* Creator and Co-Owners */
+#chat .chat-container .chat-messages .chat-main li.creator .username,
+#main_avatar_room #main-user-list-room #avatar-list LI.creator  .username,
+#player-controller .left ul li.infoContainer .infoContainerInner .currentDJSong.creator .username,
+#chat .chat-container .chat-messages .chat-main li.co-owner .username,
+#main_avatar_room #main-user-list-room #avatar-list LI.co-owner  .username,
+#player-controller .left ul li.infoContainer .infoContainerInner .currentDJSong.co-owner .username
+{
+    color:#fdb922;
+}
+
+
+
+
+/* Managers (Same color as owner) */
+#chat .chat-container .chat-messages .chat-main li.manager .username,
+#main_avatar_room #main-user-list-room #avatar-list LI.manager  .username,
+#player-controller .left ul li.infoContainer .infoContainerInner .currentDJSong.manager .username
+{
+    color:#fdb922;
+}
+
+
+
+
+/* Mods */
+#chat .chat-container .chat-messages .chat-main li.mod .username,
+#main_avatar_room #main-user-list-room #avatar-list LI.mod  .username,
+#player-controller .left ul li.infoContainer .infoContainerInner .currentDJSong.mod .username
+{
+    color:#388ee8;
+}
+
+
+
+
+/* VIPs */
+#chat .chat-container .chat-messages .chat-main li.vip .username,
+#main_avatar_room #main-user-list-room #avatar-list LI.vip  .username,
+#player-controller .left ul li.infoContainer .infoContainerInner .currentDJSong.vip .username
+{
+    color:#6441A4;
+}
+
+
+
+/* RDJs */
+#chat .chat-container .chat-messages .chat-main li.resident-dj .username,
+#main_avatar_room #main-user-list-room #avatar-list LI.resident-dj  .username,
+#player-controller .left ul li.infoContainer .infoContainerInner .currentDJSong.resident-dj .username
+{
+    color:#329c08;
+}
+
+
+
+/* DJs */
+#chat .chat-container .chat-messages .chat-main li.dj .username,
+#main_avatar_room #main-user-list-room #avatar-list LI.dj  .username,
+#player-controller .left ul li.infoContainer .infoContainerInner .currentDJSong.dj .username
+{
+    color:#3fb5dc;
+}
+
+
+
+/* adding newbie to plebs */
+#chat .chat-container .chat-messages .chat-main li .username:first-child:after
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0;
+    font-size: smaller;
+    content: "newbie";
+}
+#chat .chat-container .chat-messages .chat-main li .username:hover:first-child:after
+{
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0.8;
+}
+
+#main_avatar_room #main-user-list-room #avatar-list LI  .username:after 
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .5s;
+    font-weight: normal;
+    opacity: 0.8;
+    content: "newbie";
+}
+#main_avatar_room #main-user-list-room #avatar-list LI .username:hover:after
+{
+    transition-property: opacity;
+    transition-duration: .5s;
+    opacity: 1;
+}
+
+/* adding Administrator */
+#chat .chat-container .chat-messages .chat-main li.admin .username:first-child:after
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0;
+    font-size: smaller;
+    content: "admin";
+}
+#chat .chat-container .chat-messages .chat-main li.admin .username:hover:first-child:after
+{
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0.8;
+}
+#main_avatar_room #main-user-list-room #avatar-list LI.admin  .username:after 
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .5s;
+    font-weight: normal;
+    opacity: 0.8;
+    content: "admin";
+}
+#main_avatar_room #main-user-list-room #avatar-list LI.admin .username:hover:after
+{
+    transition-property: opacity;
+    transition-duration: .5s;
+    opacity: 1;
+}
+
+
+/* adding Creator */
+#chat .chat-container .chat-messages .chat-main li.creator .username:first-child:after
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0;
+    font-size: smaller;
+    content: "manager";
+}
+#chat .chat-container .chat-messages .chat-main li.creator .username:hover:first-child:after
+{
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0.8;
+}
+
+#main_avatar_room #main-user-list-room #avatar-list LI.creator  .username:after 
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .5s;
+    font-weight: normal;
+    opacity: 0.8;
+    content: "manager";
+}
+#main_avatar_room #main-user-list-room #avatar-list LI.creator .username:hover:after
+{
+    transition-property: opacity;
+    transition-duration: .5s;
+    opacity: 1;
+}
+
+/* adding co-owner */
+#chat .chat-container .chat-messages .chat-main li.co-owner .username:first-child:after
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0;
+    font-size: smaller;
+    content: "manager";
+}
+#chat .chat-container .chat-messages .chat-main li.co-owner .username:hover:first-child:after
+{
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0.8;
+}
+
+#main_avatar_room #main-user-list-room #avatar-list LI.co-owner  .username:after 
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .5s;
+    font-weight: normal;
+    opacity: 0.8;
+    content: "manager";
+}
+#main_avatar_room #main-user-list-room #avatar-list LI.co-owner .username:hover:after
+{
+    transition-property: opacity;
+    transition-duration: .5s;
+    opacity: 1;
+}
+
+/* adding manager */
+#chat .chat-container .chat-messages .chat-main li.manager .username:first-child:after
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0;
+    font-size: smaller;
+    content: "manager";
+}
+#chat .chat-container .chat-messages .chat-main li.manager .username:hover:first-child:after
+{
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0.8;
+}
+
+#main_avatar_room #main-user-list-room #avatar-list LI.manager  .username:after 
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .5s;
+    font-weight: normal;
+    opacity: 0.8;
+    content: "manager";
+}
+#main_avatar_room #main-user-list-room #avatar-list LI.manager .username:hover:after
+{
+    transition-property: opacity;
+    transition-duration: .5s;
+    opacity: 1;
+}
+
+
+/* adding erator to mods */
+#chat .chat-container .chat-messages .chat-main li.mod .username:first-child:after
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0;
+    font-size: smaller;
+    content: "moderator";
+}
+#chat .chat-container .chat-messages .chat-main li.mod .username:hover:first-child:after
+{
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0.8;
+}
+
+#main_avatar_room #main-user-list-room #avatar-list LI.mod  .username:after 
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .5s;
+    font-weight: normal;
+    opacity: 0.8;
+    content: "moderator";
+}
+#main_avatar_room #main-user-list-room #avatar-list LI.mod .username:hover:after
+{
+    transition-property: opacity;
+    transition-duration: .5s;
+    opacity: 1;
+}
+
+/* adding streamer to vips */
+#chat .chat-container .chat-messages .chat-main li.vip .username:first-child:after
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0;
+    font-size: smaller;
+    content: "streamer";
+}
+#chat .chat-container .chat-messages .chat-main li.vip .username:hover:first-child:after
+{
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0.8;
+}
+
+#main_avatar_room #main-user-list-room #avatar-list LI.vip  .username:after 
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .5s;
+    font-weight: normal;
+    opacity: 0.8;
+    content: "streamer";
+}
+#main_avatar_room #main-user-list-room #avatar-list LI.vip .username:hover:after
+{
+    transition-property: opacity;
+    transition-duration: .5s;
+    opacity: 1;
+}
+
+/* Adding discord member to RDJ */
+#chat .chat-container .chat-messages .chat-main li.resident-dj .username:first-child:after
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0;
+    font-size: smaller;
+    content: "resident";
+}
+#chat .chat-container .chat-messages .chat-main li.resident-dj .username:hover:first-child:after
+{
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0.8;
+}
+
+#main_avatar_room #main-user-list-room #avatar-list LI.resident-dj  .username:after 
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .5s;
+    font-weight: normal;
+    opacity: 0.8;
+    content: "resident";
+}
+#main_avatar_room #main-user-list-room #avatar-list LI.resident-dj .username:hover:after
+{
+    transition-property: opacity;
+    transition-duration: .5s;
+    opacity: 1;
+}
+
+/* Adding discord member to DJ */
+#chat .chat-container .chat-messages .chat-main li.dj .username:first-child:after
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0;
+    font-size: smaller;
+    content: "member";
+}
+#chat .chat-container .chat-messages .chat-main li.dj .username:hover:first-child:after
+{
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0.8;
+}
+
+#main_avatar_room #main-user-list-room #avatar-list LI.dj  .username:after 
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .5s;
+    font-weight: normal;
+    opacity: 0.8;
+    content: "member";
+}
+#main_avatar_room #main-user-list-room #avatar-list LI.dj .username:hover:after
+{
+    transition-property: opacity;
+    transition-duration: .5s;
+    opacity: 1;
+}
+
+/* Own user of person in chat (only in chat!) */
+#chat .chat-container .chat-messages .chat-main li.current-chat-user .username,
+#chat .chat-container .chat-messages .chat-main li.current-chat-user .username .user-role,
+{
+    /* possible changes to highlight the own user
+    color:#F7F7F7;
+    */
+}
+#chat .chat-container .chat-messages .chat-main li.current-chat-user .username .user-role:after,
+{
+    /* possible changes to get a special role for each user
+    content: "";
+    */
+}
+
+
+/* Start color changes to users */
+/* Example:
+/* <User>: user-<userid>
+
+/* Color changes:
+
+#chat .chat-container .chat-messages .chat-main li.user-<userid> .username,
+#main_avatar_room #main-user-list-room #avatar-list LI.userid-<userid> .username
+{
+    color: #c7f3ff;
+}
+
+/* Role changes:
+
+#chat .chat-container .chat-messages .chat-main li.user-<userid> .username:first-child:after
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0;
+    font-weight: normal;
+    content: "bot";
+}
+#chat .chat-container .chat-messages .chat-main li.user-<userid> .username:hover:first-child:after
+{
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0.8;
+}
+
+#main_avatar_room #main-user-list-room #avatar-list LI.userid-<userid>  .username:after 
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .5s;
+    font-weight: normal;
+    opacity: 0.8;
+    content: "bot";
+}
+#main_avatar_room #main-user-list-room #avatar-list LI.userid-<userid> .username:hover:after
+{
+    transition-property: opacity;
+    transition-duration: .5s;
+    opacity: 1;
+}
+*/
+
+/* Bot Changes */
+/* Zolcat: user-58f24cb8f7785ec6008b96c4 */
+#chat .chat-container .chat-messages .chat-main li.user-58f24cb8f7785ec6008b96c4 .username,
+#main_avatar_room #main-user-list-room #avatar-list LI.userid-58f24cb8f7785ec6008b96c4 .username
+{
+    color: #c7f3ff;
+}
+
+/* Zolcat room bot change */
+#chat .chat-container .chat-messages .chat-main li.user-58f24cb8f7785ec6008b96c4 .username:first-child:after
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0;
+    content: "bot";
+}
+#chat .chat-container .chat-messages .chat-main li.user-58f24cb8f7785ec6008b96c4 .username:hover:first-child:after
+{
+    transition-property: opacity;
+    transition-duration: .25s;
+    opacity: 0.8;
+}
+
+#main_avatar_room #main-user-list-room #avatar-list LI.userid-58f24cb8f7785ec6008b96c4  .username:after 
+{
+    margin-left: .25rem;    
+    transition-property: opacity;
+    transition-duration: .5s;
+    font-weight: normal;
+    opacity: 0.8;
+    content: "bot";
+}
+#main_avatar_room #main-user-list-room #avatar-list LI.userid-58f24cb8f7785ec6008b96c4 .username:hover:after
+{
+    transition-property: opacity;
+    transition-duration: .5s;
+    opacity: 1;
+}
+
+/* Zolcat Bot appearance */
+#chat .chat-container .chat-messages .chat-main li.user-58f24cb8f7785ec6008b96c4 .username {
+    padding-left: 1.6em;
+    padding-bottom: 0.2em
+}
+
+#chat .chat-container .chat-messages .chat-main li.user-58f24cb8f7785ec6008b96c4 .username .user-role-icon
+{
+    display:none !important;
+}
+
+#chat .chat-main li.user-58f24cb8f7785ec6008b96c4  .image_row {
+    top: 0.5rem !important;
+    width: 1.1rem !important;
+    height: 1.1rem !important;
+}
+ 
+#chat .chat-main li.user-58f24cb8f7785ec6008b96c4  .activity-row {
+    padding-left: 0.05em !important;
+    padding-top: 0.6em !important;
+}
