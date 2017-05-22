@@ -1,0 +1,26 @@
+/*
+  4 Maspian <3
+    - Makes player smaller
+    - Moves player to top left
+    - Moves chat to right
+*/
+
+@media screen and (min-height: 47em) and (min-width: 72em) {
+    #main-room {
+        max-width: initial;
+    }
+}
+@media screen and (min-width: 72em) {
+    #main-room {
+        max-width: initial;
+    }
+    #main-room .left_section {
+        padding-right: 0;
+    }
+}
+@media screen and (min-height: 41em) and (min-width: 72em) {
+    #main-room .left_section {
+        display: initial;
+        margin-top: 3rem;
+    }
+}
